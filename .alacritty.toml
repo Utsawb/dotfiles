@@ -1,0 +1,29 @@
+shell = "fish"
+
+import = [
+    "~/.config/alacritty/catppuccin-macchiato.toml"
+]
+
+[window]
+padding = {x = 5, y = 5}
+decorations = "None"
+opacity = 0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold Italic"
+
+[mouse]
+hide_when_typing = true
