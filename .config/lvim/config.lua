@@ -14,34 +14,34 @@ lvim.plugins = {
         "sindrets/diffview.nvim",
         event = "BufRead",
     },
-    { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
-    {"andweeb/presence.nvim"}
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- {"andweeb/presence.nvim"}
 }
 
 -- The setup config table shows all available config options with their default values:
-require("presence").setup({
-    -- General options
-    auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-    neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
-    main_image          = "neovim",                   -- Main image display (either "neovim" or "file")
-    client_id           = "793271441293967371",       -- Use your own Discord application client id (not recommended)
-    log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-    debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-    enable_line_number  = false,                      -- Displays the current line number instead of the current project
-    blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
-    buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
-    file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
-    show_time           = true,                       -- Show the timer
+-- require("presence").setup({
+--     -- General options
+--     auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+--     neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
+--     main_image          = "neovim",                   -- Main image display (either "neovim" or "file")
+--     client_id           = "793271441293967371",       -- Use your own Discord application client id (not recommended)
+--     log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+--     debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+--     enable_line_number  = false,                      -- Displays the current line number instead of the current project
+--     blacklist           = {},                         -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
+--     buttons             = true,                       -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+--     file_assets         = {},                         -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+--     show_time           = true,                       -- Show the timer
 
-    -- Rich Presence text options
-    editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
-    file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
-    git_commit_text     = "Committing changes",       -- Format string rendered when committing changes in git (either string or function(filename: string): string)
-    plugin_manager_text = "Managing plugins",         -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
-    reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
-    workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
-    line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
-})
+--     -- Rich Presence text options
+--     editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+--     file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+--     git_commit_text     = "Committing changes",       -- Format string rendered when committing changes in git (either string or function(filename: string): string)
+--     plugin_manager_text = "Managing plugins",         -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
+--     reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+--     workspace_text      = "Working on %s",            -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+--     line_number_text    = "Line %s out of %s",        -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+-- })
 
 -- vim.opt.background = "dark"
 lvim.colorscheme = 'catppuccin-macchiato'
@@ -53,55 +53,52 @@ lvim.builtin.project.active = false
 
 vim.opt.shell = 'fish'
 
-vim.opt.backup = false                     -- creates a backup file
-vim.opt.clipboard = "unnamed,unnamedplus"          -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 2                      -- more space in the neovim command line for displaying messages
-vim.opt.colorcolumn = "99999"              -- fixes indentline for now
+vim.opt.backup = false                          -- creates a backup file
+vim.opt.clipboard = "unnamed,unnamedplus"       -- allows neovim to access the system clipboard
+vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
+vim.opt.colorcolumn = "99999"                   -- fixes indentline for now
 vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.conceallevel = 0                   -- so that `` is visible in markdown files
-vim.opt.fileencoding = "utf-8"             -- the encoding written to a file
-vim.opt.foldmethod = "manual"              -- folding set to "expr" for treesitter based folding
-vim.opt.foldexpr = ""                      -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
-vim.opt.hlsearch = true                    -- highlight all matches on previous search pattern
-vim.opt.ignorecase = true                  -- ignore case in search patterns
-vim.opt.mouse = "a"                        -- allow the mouse to be used in neovim
-vim.opt.pumheight = 10                     -- pop up menu height
-vim.opt.showmode = false                   -- we don't need to see things like -- INSERT -- anymore
-vim.opt.showtabline = 2                    -- always show tabs
-vim.opt.smartcase = true                   -- smart case
-vim.opt.smartindent = false                -- make indenting smarter again
-vim.opt.splitbelow = true                  -- force all horizontal splits to go below current window
-vim.opt.splitright = true                  -- force all vertical splits to go to the right of current window
-vim.opt.swapfile = false                   -- creates a swapfile
-vim.opt.termguicolors = true               -- set term gui colors (most terminals support this)
-vim.opt.timeoutlen = 100                   -- time to wait for a mapped sequence to complete (in milliseconds)
-vim.opt.title = true                       -- set the title of window to the value of the titlestring
-vim.opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
+vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
+vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
+vim.opt.foldmethod = "manual"                   -- folding set to "expr" for treesitter based folding
+vim.opt.foldexpr =
+"nvim_treesitter#foldexpr()"                    -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+vim.opt.hidden = true                           -- required to keep multiple buffers and open multiple buffers
+vim.opt.hlsearch = true                         -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true                       -- ignore case in search patterns
+vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
+vim.opt.pumheight = 10                          -- pop up menu height
+vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 2                         -- always show tabs
+vim.opt.smartcase = true                        -- smart case
+vim.opt.smartindent = false                     -- make indenting smarter again
+vim.opt.splitbelow = true                       -- force all horizontal splits to go below current window
+vim.opt.splitright = true                       -- force all vertical splits to go to the right of current window
+vim.opt.swapfile = false                        -- creates a swapfile
+vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
+vim.opt.timeoutlen = 100                        -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.title = false                            -- set the title of window to the value of the titlestring
+vim.opt.titlestring = "%<%F%=%l/%L - nvim"      -- what the title of the window will be set to
 vim.opt.undodir = vim.fn.stdpath "cache" .. "/undo"
-vim.opt.undofile = true                    -- enable persistent undo
-vim.opt.updatetime = 300                   -- faster completion
-vim.opt.writebackup = false                -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
-vim.opt.expandtab = true                   -- convert tabs to spaces
-vim.opt.shiftwidth = 4                     -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 4                        -- insert 2 spaces for a tab
-vim.opt.cursorline = true                  -- highlight the current line
-vim.opt.number = true                      -- set numbered lines
-vim.opt.relativenumber = true              -- set relative numbered lines
-vim.opt.numberwidth = 4                    -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes"                 -- always show the sign column otherwise it would shift the text each time
-vim.opt.wrap = false                       -- display lines as one long line
-vim.opt.scrolloff = 10                     -- is one of my fav
+vim.opt.undofile = true                         -- enable persistent undo
+vim.opt.updatetime = 300                        -- faster completion
+vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
+vim.opt.expandtab = true                        -- convert tabs to spaces
+vim.opt.shiftwidth = 4                          -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4                             -- insert 2 spaces for a tab
+vim.opt.cursorline = false                       -- highlight the current line
+vim.opt.number = true                           -- set numbered lines
+vim.opt.relativenumber = true                   -- set relative numbered lines
+vim.opt.numberwidth = 2                         -- set number column width to 2 {default 4}
+vim.opt.signcolumn = "yes"                      -- always show the sign column otherwise it would shift the text each time
+vim.opt.wrap = false                            -- display lines as one long line
+vim.opt.scrolloff = 10                          -- is one of my fav
 vim.opt.sidescrolloff = 8
 
 ---Mark Down Plugin
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- lvim.keys.normal_mode["<C-h>"] = ":TmuxNavigateLeft<CR>"
--- lvim.keys.normal_mode["<C-l>"] = ":TmuxNavigateRight<CR>"
--- lvim.keys.normal_mode["<C-j>"] = ":TmuxNavigateDown<CR>"
--- lvim.keys.normal_mode["<C-k>"] = ":TmuxNavigateUp<CR>"
 -- add your own keymapping
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
@@ -150,7 +147,7 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 -- lvim.builtin.alpha.dashboard.section.header.val = {
 -- [[⠤⠤⠤⠤⠤⠤⢤⣄⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],

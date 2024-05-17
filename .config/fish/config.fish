@@ -10,6 +10,15 @@ if status is-login
     end
 end
 
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
 # Shit pulled from the bashrc
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
