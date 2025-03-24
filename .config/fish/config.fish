@@ -29,6 +29,9 @@ alias l='ls -CF'
 
 alias vi='lvim'
 
+set -Ux OLLAMA_HOST 0.0.0.0
+set -Ux OLLAMA_MODELS /mnt/LongTermStore/ollama/
+
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
 fish_add_path ~/.npm-global/bin

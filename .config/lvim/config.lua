@@ -62,6 +62,7 @@ lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
 lvim.transparent_window = true
 lvim.builtin.project.active = false
+lvim.builtin.which_key.setup.plugins.presets.z = true
 
 vim.opt.shell = 'fish'
 
@@ -72,9 +73,9 @@ vim.opt.colorcolumn = "99999"              -- fixes indentline for now
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.conceallevel = 0                   -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"             -- the encoding written to a file
-vim.opt.foldmethod = "manual"              -- folding set to "expr" for treesitter based folding
-vim.opt.foldexpr =
-"nvim_treesitter#foldexpr()"               -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+vim.opt.foldmethod = "expr"              -- folding set to "expr" for treesitter based folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"               -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+vim.opt.foldenable = false
 vim.opt.hidden = true                      -- required to keep multiple buffers and open multiple buffers
 vim.opt.hlsearch = true                    -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true                  -- ignore case in search patterns
@@ -102,8 +103,7 @@ vim.opt.cursorline = false                 -- highlight the current line
 vim.opt.number = true                      -- set numbered lines
 vim.opt.relativenumber = true              -- set relative numbered lines
 vim.opt.numberwidth = 2                    -- set number column width to 2 {default 4}
-vim.opt.signcolumn =
-"yes"                                      -- always show the sign column otherwise it would shift the text each time
+vim.opt.signcolumn = "yes"                                      -- always show the sign column otherwise it would shift the text each time
 vim.opt.wrap = false                       -- display lines as one long line
 vim.opt.scrolloff = 10                     -- is one of my fav
 vim.opt.sidescrolloff = 8
