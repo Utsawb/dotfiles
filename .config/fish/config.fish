@@ -31,6 +31,7 @@ alias vi='lvim'
 
 set -Ux OLLAMA_HOST 0.0.0.0
 set -Ux OLLAMA_MODELS /mnt/LongTermStore/ollama/
+set -Ux XR_RUNTIME_JSON /usr/share/openxr/1/openxr_monado.json
 
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.local/bin
