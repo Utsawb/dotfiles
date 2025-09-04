@@ -1,15 +1,14 @@
-if status is-interactive
-end
-
+# stop the default greeting
 function fish_greeting
 end
 
-if status is-login 
-    if test (tty) = /dev/tty1
-        exec Hyprland &> /dev/null
-    end
-end
+# convenient ls shortcuts
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
+# dolphin kinda sucks ngl
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
 	yazi $argv --cwd-file="$tmp"
@@ -19,21 +18,15 @@ function yy
 	rm -f -- "$tmp"
 end
 
-# Shit pulled from the bashrc
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 alias vi='lvim'
 
-set -Ux OLLAMA_HOST 0.0.0.0
-set -Ux OLLAMA_MODELS /mnt/LongTermStore/ollama/
+# ollama model install paths
+# set -Ux OLLAMA_HOST 0.0.0.0
+# set -Ux OLLAMA_MODELS /mnt/LongTermStore/ollama/
+set -Ux XR_RUNTIME_JSON /usr/share/openxr/1/openxr_monado.json
+# set -Ux XR_RUNTIME_JSON /usr/share/openxr/1/openxr_wivrn.json
 
-fish_add_path ~/.cargo/bin
-fish_add_path ~/.local/bin
-fish_add_path ~/.npm-global/bin
+# fish_add_path ~/.cargo/bin
+# fish_add_path ~/.npm-global/bin
 
 starship init fish | source

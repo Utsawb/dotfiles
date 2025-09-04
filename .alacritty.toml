@@ -25,9 +25,8 @@ style = "Bold Italic"
 hide_when_typing = true
 
 [general]
-
 import = [
-    "~/.config/alacritty/catppuccin-macchiato.toml"
+    "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
 [terminal]
